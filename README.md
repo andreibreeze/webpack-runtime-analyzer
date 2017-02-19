@@ -14,7 +14,7 @@ npm install webpack-runtime-analyzer --save-dev
 
 ## Usage
 
-Add plugin to your webpack config:
+Add the plugin to your webpack config:
 
 ```js
 var RuntimeAnalyzerPlugin = require('webpack-runtime-analyzer');
@@ -24,13 +24,7 @@ var RuntimeAnalyzerPlugin = require('webpack-runtime-analyzer');
 plugins.push(new RuntimeAnalyzerPlugin());
 ```
 
-Start [rempl server](https://github.com/rempl/rempl-cli):
-
-```bash
-rempl
-```
-
-> Also, you can use the [GUI](https://github.com/rempl/menubar-server) to control rempl server.
+Start building in watch-mode (`wabpack --watch` or `webpack-dev-server`) then open [http://localhost:8177/basisjs-tools/rempl](http://localhost:8177/basisjs-tools/rempl) in your browser to see UI.
 
 Try the [example](example) to see how it works:
 
@@ -40,13 +34,27 @@ npm i
 npm run dev
 ```
 
-Then open rempl server URL in your browser ([http://localhost:8177](http://localhost:8177) by default)
-
-> Make sure that your rempl server is up.
-
 ## Plugin config
 
-If you don't want to use default plugin config, then you can specify your own config:
+Plugin should work correctly event if you didn't pass a config, but if you don't want to use default config, then you can specify your own:
+
+#### open
+
+Open UI automatically when building will started.
+
+`false` by default.
+
+#### internalServer
+
+Start [rempl server](https://github.com/rempl/rempl) when building will started.
+
+If you start rempl server manually (with [CLI](https://github.com/rempl/rempl-cli) or [GUI](https://github.com/rempl/menubar-server)) then set `internalServer` to `false`.
+
+`true` by default.
+
+#### ui
+
+Example:
 
 ```js
 new RuntimeAnalyzerPlugin({
